@@ -25,3 +25,6 @@ The project code that sends a report as a PDF attachment includes the following 
 - [DashboardExporter](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardExporter)
 
 ## Examples
+-  [BI Dashboard - How to Email a Dashboard that Displays Different Data Depending on the Addressee](https://github.com/DevExpress-Examples/bi-dashboard-mailkit-export-console-app)
+-  [BI Dashboard - Non-Visual Export Component](https://github.com/DevExpress-Examples/bi-dashboard-non-visual-exporter)
+- [BI Dashboard - Non-Visual Custom Export](https://github.com/DevExpress-Examples/bi-dashboard-non-visual-custom-export)
