@@ -1,4 +1,4 @@
-﻿Imports DevExpress.DashboardCommon
+Imports DevExpress.DashboardCommon
 Imports MailKit.Net.Smtp
 Imports MailKit.Security
 Imports MimeKit
@@ -7,7 +7,8 @@ Imports System.IO
 Imports System.Threading.Tasks
 
 Namespace SimpleMailExport
-    Partial Public Class Form1
+
+    Public Partial Class Form1
         Inherits DevExpress.XtraEditors.XtraForm
 
         Public Sub New()
@@ -15,6 +16,8 @@ Namespace SimpleMailExport
         End Sub
 
         Private Shared Function CreateMimeMessage() As MimeMessage
+            ' Instantiate a report. 
+            ' Email export options are already specified at design time.
             Try
                 Dim exporter As DashboardExporter = New DashboardExporter()
                 AddHandler exporter.ConnectionError, AddressOf Exporter_ConnectionError
@@ -22,14 +25,14 @@ Namespace SimpleMailExport
                 AddHandler exporter.DataLoadingError, AddressOf Exporter_DataLoadingError
                 Dim message = New MimeMessage()
                 message.From.Add(New MailboxAddress("Someone", "someone@somewhere.com"))
-                message.[To].Add(New MailboxAddress("Someone Else", "someone.else@somewhere.com"))
+                message.To.Add(New MailboxAddress("Someone Else", "someone.else@somewhere.com"))
                 message.Subject = "Dashboard"
                 Dim builder = New BodyBuilder()
                 builder.TextBody = "This is a test e-mail message sent by an application."
-
+                ' Create a new attachment and add the PDF document.
                 Using stream As MemoryStream = New MemoryStream()
                     exporter.ExportToPdf("Data/MailDashboard.xml", stream, New System.Drawing.Size(2000, 1000))
-                    stream.Seek(0, System.IO.SeekOrigin.Begin)
+                    stream.Seek(0, SeekOrigin.Begin)
                     builder.Attachments.Add("Dashboard.pdf", stream.ToArray(), New ContentType("application", "pdf"))
                 End Using
 
@@ -42,7 +45,7 @@ Namespace SimpleMailExport
 
         Private Async Sub btnSend_Click(ByVal sender As Object, ByVal e As EventArgs)
             Dim SmtpHost As String = edtHost.EditValue.ToString()
-            Dim SmtpPort As Integer = Int32.Parse(edtPort.EditValue.ToString())
+            Dim SmtpPort As Integer = Integer.Parse(edtPort.EditValue.ToString())
             Dim SmtpUserName As String = edtUsername.EditValue.ToString()
             Dim SmtpUserPassword As String = edtPassword.EditValue.ToString()
             lblProgress.Text = "Sending mail..."
@@ -51,12 +54,10 @@ Namespace SimpleMailExport
 
         Private Shared Async Function SendAsync(ByVal smtpHost As String, ByVal smtpPort As Integer, ByVal userName As String, ByVal password As String) As Task(Of String)
             Dim result As String = "OK"
-
+            ' Create a new memory stream and export the report in PDF.
             Using mail As MimeMessage = CreateMimeMessage()
                 If mail Is Nothing Then Return "An error occured when export a Dashboard. See console for details."
-
                 Using client = New SmtpClient()
-
                     Try
                         client.Connect(smtpHost, smtpPort, SecureSocketOptions.Auto)
                         client.Authenticate(userName, password)
@@ -79,7 +80,7 @@ Namespace SimpleMailExport
 
         Private Shared Sub Exporter_DataLoadingError(ByVal sender As Object, ByVal e As DataLoadingErrorEventArgs)
             For Each [error] As DataLoadingError In e.Errors
-                Console.WriteLine($"The following error occurs in {[error].DataSourceName}: {[error].[Error]}")
+                Console.WriteLine($"The following error occurs in {[error].DataSourceName}: {[error].Error}")
             Next
 
             Throw New Exception()
@@ -87,7 +88,7 @@ Namespace SimpleMailExport
 
         Private Shared Sub Exporter_DashboardItemDataLoadingError(ByVal sender As Object, ByVal e As DashboardItemDataLoadingErrorEventArgs)
             For Each [error] As DashboardItemDataLoadingError In e.Errors
-                Console.WriteLine($"The following error occurs in {[error].DashboardItemName}: {[error].[Error]}")
+                Console.WriteLine($"The following error occurs in {[error].DashboardItemName}: {[error].Error}")
             Next
 
             Throw New Exception()
