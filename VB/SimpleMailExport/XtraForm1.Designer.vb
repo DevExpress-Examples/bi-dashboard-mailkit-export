@@ -1,41 +1,41 @@
-﻿Namespace SimpleMailExport
-	Partial Public Class XtraForm1
-		''' <summary>
-		''' Required designer variable.
-		''' </summary>
-		Private components As System.ComponentModel.IContainer = Nothing
+Namespace SimpleMailExport
 
-		''' <summary>
-		''' Clean up any resources being used.
-		''' </summary>
-		''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-			If disposing AndAlso (components IsNot Nothing) Then
-				components.Dispose()
-			End If
-			MyBase.Dispose(disposing)
-		End Sub
+    Partial Class XtraForm1
 
-		#Region "Windows Form Designer generated code"
+        ''' <summary>
+        ''' Required designer variable.
+        ''' </summary>
+        Private components As System.ComponentModel.IContainer = Nothing
 
-		''' <summary>
-		''' Required method for Designer support - do not modify
-		''' the contents of this method with the code editor.
-		''' </summary>
-		Private Sub InitializeComponent()
-			Me.SuspendLayout()
-			' 
-			' XtraForm1
-			' 
-			Me.AutoScaleDimensions = New System.Drawing.SizeF(6F, 13F)
-			Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-			Me.ClientSize = New System.Drawing.Size(298, 268)
-			Me.Name = "XtraForm1"
-			Me.Text = "XtraForm1"
-			Me.ResumeLayout(False)
+        ''' <summary>
+        ''' Clean up any resources being used.
+        ''' </summary>
+        ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
+            End If
 
-		End Sub
+            MyBase.Dispose(disposing)
+        End Sub
 
-		#End Region
-	End Class
+#Region "Windows Form Designer generated code"
+        ''' <summary>
+        ''' Required method for Designer support - do not modify
+        ''' the contents of this method with the code editor.
+        ''' </summary>
+        Private Sub InitializeComponent()
+            Me.SuspendLayout()
+            ' 
+            ' XtraForm1
+            ' 
+            Me.AutoScaleDimensions = New System.Drawing.SizeF(6F, 13F)
+            Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+            Me.ClientSize = New System.Drawing.Size(298, 268)
+            Me.Name = "XtraForm1"
+            Me.Text = "XtraForm1"
+            Me.ResumeLayout(False)
+        End Sub
+#End Region
+    End Class
 End Namespace
