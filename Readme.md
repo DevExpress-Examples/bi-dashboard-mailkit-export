@@ -9,7 +9,7 @@ This example demonstrates how to email a dashboard with the MailKit email client
 
 ## Files to Look at
 
-[Form1.cs]() ([Form1.vb]())
+[Form1.cs](./CS/SimpleMailExport/Form1.cs) ([Form1.vb](./VB/SimpleMailExport/Form1.vb))
 
 ## Example Overview
 
