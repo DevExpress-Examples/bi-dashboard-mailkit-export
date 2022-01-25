@@ -7,14 +7,11 @@ using System.IO;
 using System.Threading.Tasks;
 
 namespace SimpleMailExport {
-    public partial class Form1 : DevExpress.XtraEditors.XtraForm
-    {
-        public Form1()
-        {
+    public partial class Form1 : DevExpress.XtraEditors.XtraForm {
+        public Form1() {
             InitializeComponent();
         }
-        private static MimeMessage CreateMimeMessage()
-        {
+        private static MimeMessage CreateMimeMessage() {
             try {
                 DashboardExporter exporter = new DashboardExporter();
                 exporter.ConnectionError += Exporter_ConnectionError;
@@ -40,8 +37,7 @@ namespace SimpleMailExport {
             catch { return null; }
         }
 
-        private async void btnSend_Click(object sender, EventArgs e)
-        {
+        private async void btnSend_Click(object sender, EventArgs e) {
             string SmtpHost = edtHost.EditValue.ToString();
             int SmtpPort = Int32.Parse(edtPort.EditValue.ToString());
             string SmtpUserName = edtUsername.EditValue.ToString();
