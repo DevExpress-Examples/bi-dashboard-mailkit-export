@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # BI Dashboard - How to Use MailKit to Send a Dashboard as a Document in PDF
 
-This example demonstrates how to email a dashboard with the [MailKit](https://github.com/jstedfast/MailKit) email client library. Run the application, enter the SMTP host, port, smtp credentials, and click **Send** to email a document to the address specified in the export options.
+This example demonstrates how to email a dashboard with the [MailKit](https://github.com/jstedfast/MailKit) email client library. Run the application, enter the SMTP host, port, SMTP credentials, and click **Send** to email a document to the address specified in the export options.
 
 ## Files to Look at
 
