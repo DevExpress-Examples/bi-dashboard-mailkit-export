@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # BI Dashboard - How to Use MailKit to Send a Dashboard as a Document in PDF
 
-This example demonstrates how to email a dashboard with the MailKit email client library. Run the application, enter the SMTP host, port, smtp credentials, and click Send to email a document to the address specified in the report export options.
+This example demonstrates how to email a dashboard with the MailKit email client library. Run the application, enter the SMTP host, port, smtp credentials, and click **Send** to email a document to the address specified in the export options.
 
 ## Files to Look at
 
@@ -14,7 +14,7 @@ This example demonstrates how to email a dashboard with the MailKit email client
 ## Example Overview
 
 
-The project code that sends a report as a PDF attachment includes the following steps:
+The project code that sends a dashboard as a PDF attachment includes the following steps:
 
 - Create a [DashboardExporter](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardExporter) instance and call the [DashboardExporter.ExportToPdf](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardExporter.ExportToPdf(Dashboard--Stream--Nullable-Size---DashboardState--DashboardPdfExportOptions)) method to export a dashboard to a PDF document.
 - Attach the PDF document to the [MimeMessage](http://www.mimekit.net/docs/html/T_MimeKit_MimeMessage.htm) object.
