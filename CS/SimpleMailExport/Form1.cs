@@ -55,7 +55,7 @@ namespace SimpleMailExport {
             // Create a new memory stream and export the dashboard in PDF.
             using(MimeMessage mail = CreateMimeMessage()) {
                 if(mail == null)
-                    return "An error occured when export a Dashboard. See console for details.";
+                    return "An error occured when export a dashboard. See console for details.";
                 using(var client = new SmtpClient()) {
                     try {
                         client.Connect(smtpHost, smtpPort, SecureSocketOptions.Auto);
