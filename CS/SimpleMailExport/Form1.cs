@@ -15,8 +15,6 @@ namespace SimpleMailExport {
         }
         private static MimeMessage CreateMimeMessage()
         {
-            // Instantiate a report. 
-            // Email export options are already specified at design time.
             try {
                 DashboardExporter exporter = new DashboardExporter();
                 exporter.ConnectionError += Exporter_ConnectionError;
@@ -54,7 +52,7 @@ namespace SimpleMailExport {
 
         private static async Task<string> SendAsync(string smtpHost, int smtpPort, string userName, string password) {
             string result = "OK";
-            // Create a new memory stream and export the report in PDF.
+            // Create a new memory stream and export the dashboard in PDF.
             using(MimeMessage mail = CreateMimeMessage()) {
                 if(mail == null)
                     return "An error occured when export a Dashboard. See console for details.";
