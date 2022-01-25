@@ -52,9 +52,9 @@ Namespace SimpleMailExport
 
         Private Shared Async Function SendAsync(ByVal smtpHost As String, ByVal smtpPort As Integer, ByVal userName As String, ByVal password As String) As Task(Of String)
             Dim result As String = "OK"
-        ' Create a new memory stream and export the dashboard in PDF.
+            ' Create a new memory stream and export the dashboard in PDF.
             Using mail As MimeMessage = CreateMimeMessage()
-            If mail Is Nothing Then Return "An error occured when export a dashboard. See console for details."
+                If mail Is Nothing Then Return "An error occured when export a Dashboard. See console for details."
                 Using client = New SmtpClient()
                     Try
                         client.Connect(smtpHost, smtpPort, SecureSocketOptions.Auto)
