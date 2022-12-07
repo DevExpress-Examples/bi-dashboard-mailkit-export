@@ -60,11 +60,9 @@ Namespace SimpleMailExport
                     Catch ex As Exception
                         result = ex.Message
                     End Try
-
                     client.Disconnect(True)
                 End Using
             End Using
-
             Return result
         End Function
 
