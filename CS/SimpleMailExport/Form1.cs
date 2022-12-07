@@ -36,7 +36,6 @@ namespace SimpleMailExport {
             }
             catch { return null; }
         }
-
         private async void btnSend_Click(object sender, EventArgs e) {
             string SmtpHost = edtHost.EditValue.ToString();
             int SmtpPort = Int32.Parse(edtPort.EditValue.ToString());
@@ -45,7 +44,6 @@ namespace SimpleMailExport {
             lblProgress.Text = "Sending mail...";
             lblProgress.Text = await SendAsync(SmtpHost, SmtpPort, SmtpUserName, SmtpUserPassword);
         }
-
         private static async Task<string> SendAsync(string smtpHost, int smtpPort, string userName, string password) {
             string result = "OK";
             // Create a new memory stream and export the dashboard in PDF.
@@ -64,10 +62,8 @@ namespace SimpleMailExport {
                     client.Disconnect(true);
                 }
             }
-
             return result;
         }
-
         static void Exporter_ConnectionError(object sender,
             DashboardExporterConnectionErrorEventArgs e) {
             Console.WriteLine(
