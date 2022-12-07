@@ -7,11 +7,14 @@ Imports System.IO
 Imports System.Threading.Tasks
 
 Namespace SimpleMailExport
+
     Public Partial Class Form1
         Inherits DevExpress.XtraEditors.XtraForm
+
         Public Sub New()
             InitializeComponent()
         End Sub
+
         Private Shared Function CreateMimeMessage() As MimeMessage
             Try
                 Dim exporter As DashboardExporter = New DashboardExporter()
@@ -60,9 +63,11 @@ Namespace SimpleMailExport
                     Catch ex As Exception
                         result = ex.Message
                     End Try
+
                     client.Disconnect(True)
                 End Using
             End Using
+
             Return result
         End Function
 
