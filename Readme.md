@@ -8,7 +8,7 @@
 
 This example demonstrates how to email a dashboard with the [MailKit](https://github.com/jstedfast/MailKit) email client library. Run the application, enter the SMTP host, port, SMTP credentials, and click **Send** to email a document to the specified address.
 
-## Files to Look at
+## Files to Review
 
 [Form1.cs](./CS/SimpleMailExport/Form1.cs) ([Form1.vb](./VB/SimpleMailExport/Form1.vb))
 
